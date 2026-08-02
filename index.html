@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>One Color</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <main>
+            <h1 id="title">One Color</h1>
+            <p id="desc">
+            Show one color.
+            </p>
+        </main>
+
+        <script src="color.js"></script>
+        <script>
+            function getColorScheme() {
+                return window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
+            }
+
+            function update() {
+                const color = getColor();
+                const title = document.getElementById("title");
+                const desc = document.getElementById("desc");
+
+                if (color) {
+                    document.title = "One Color - " + color;
+                    document.body.style.backgroundColor = color;
+
+                    title.textContent = color;
+                    const info = analyzeColor(color);
+                    desc.innerHTML = `
+                        <details>
+                        <summary>${color} Color Infomation</summary>
+                        <table>
+                        ${Object.entries(info).map(([key, value]) => `
+                            <tr>
+                            <td>${key}</td>
+                            <td>
+                            ${typeof value === "object"
+                                    ? Object.values(value).join(", ")
+                                    : value
+                            }
+                            </td>
+                            </tr>
+                            `).join("")}
+                        </table>
+                        </details>
+                        `;
+                    title.style.color = getTextColor(color);
+                    desc.style.color = getTextColor(color);
+
+                } else {
+                    document.title = "One Color";
+                    document.body.style.backgroundColor = getColorScheme() === "dark" ? "#1a1a1a" : "#eee";
+
+                    title.textContent = "Invalid color or nothing";
+                    const color3 = randomColor(true);
+                    const color6 = randomColor(false);
+
+                    const links = [
+                        { key: "Query", value: `?color=${color3.substring(1)}` },
+                        { key: "", value: `?color=${color6.substring(1)}` },
+                        { key: "Hash", value: color3 },
+                        { key: "", value: color6 },
+                        { key: "Path", value: color3 },
+                        { key: "", value: color6 },
+                    ];
+                    desc.innerHTML = `
+                    On this page, you can display color samples from color codes.<br>
+                        The notation is as follows:<br>
+                        <table>
+                        ${links.map(({ key, value }) => `
+                            <tr>
+                            <td>${key}</td>
+                            <td><a href="${value}">${value}</a></td>
+                            </tr>
+                            `).join("")}
+                        </table>
+                        <br>
+                        source code: <a href="https://github.com/T-b-t-nchos/one-color">https://github.com/T-b-t-nchos/one-color</a>
+                        <br>
+                        `;
+
+
+                    title.style.color = "#e00";
+                    desc.style.color = "#e00";
+                }
+            }
+
+            update();
+            window.addEventListener("hashchange", update);
+        </script>
+    </body>
+
+</html>
