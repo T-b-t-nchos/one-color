@@ -38,7 +38,11 @@ function normalizeColor(color) {
         return null;
     }
 
-    color = color.replace(/^#/, "");
+    if (Array.isArray(color)) {
+        color = color[0];
+    }
+
+    color = String(color).replace(/^#/, "");
 
     if (/^[0-9a-fA-F]{3}$/.test(color)) {
         color = color
