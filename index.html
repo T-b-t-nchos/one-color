@@ -29,8 +29,26 @@
                     : "light";
             }
 
+            function hasParam(name) {
+                const params = new URLSearchParams(location.search);
+
+                name = name.toLowerCase();
+
+                for (const key of params.keys()) {
+                    if (key.toLowerCase() === name) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
             function update() {
                 const color = getColor();
+
+                const hideTitle = hasParam("hideTitle");
+                const hideDesc = hasParam("hideDesc");
+
                 const title = document.getElementById("title");
                 const desc = document.getElementById("desc");
 
@@ -61,6 +79,14 @@
                     title.style.color = getTextColor(color);
                     desc.style.color = getTextColor(color);
 
+                    if (hideTitle) {
+                        title.style.display = "none";
+                    }
+
+                    if (hideDesc) {
+                        desc.style.display = "none";
+                    }
+
                 } else {
                     document.title = "One Color";
                     document.body.style.backgroundColor = getColorScheme() === "dark" ? "#1a1a1a" : "#eee";
@@ -78,7 +104,7 @@
                         { key: "", value: color6.substring(1) },
                     ];
                     desc.innerHTML = `
-                    On this page, you can display color samples from color codes.<br>
+                        On this page, you can display color samples from color codes.<br>
                         The notation is as follows:<br>
                         <table>
                         ${links.map(({ key, value }) => `
