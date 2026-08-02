@@ -59,6 +59,8 @@
                     document.title = "One Color - " + color;
                     document.body.style.backgroundColor = color;
 
+                    const textColor = getTextColor(color);
+
                     title.textContent = color;
                     const info = analyzeColor(color);
                     desc.innerHTML = `
@@ -77,10 +79,13 @@
                             </tr>
                             `).join("")}
                         </table>
+                        <table>
+                        <tr><td>(Text Color)</td><td>${textColor} ■</td></tr>
+                        </table>
                         </details>
                         `;
-                    title.style.color = getTextColor(color);
-                    desc.style.color = getTextColor(color);
+                    title.style.color = textColor;
+                    desc.style.color = textColor;
 
                     if (hideTitle) {
                         title.style.display = "none";
