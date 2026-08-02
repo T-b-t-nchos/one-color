@@ -64,16 +64,22 @@ function getTextColor(color) {
         b * 0.114;
 
     if (brightness > 186) {
-        return `rgb(${Math.round(r * 0.12)}, ${Math.round(g * 0.12)}, ${Math.round(b * 0.12)})`;
+        return `#${
+            Math.round(r * 0.12)
+        }${
+            Math.round(g * 0.12)
+        }${
+            Math.round(b * 0.12)
+        }`;
     }
 
-    return `rgb(${
-        Math.round(r + (255 - r) * 0.88)
-    }, ${
-        Math.round(g + (255 - g) * 0.88)
-    }, ${
-        Math.round(b + (255 - b) * 0.88)
-    })`;
+    return `#${
+        Math.round(r + (255 - r) * 0.88).toString(16).padStart(2, "0")
+    }${
+        Math.round(g + (255 - g) * 0.88).toString(16).padStart(2, "0")
+    }${
+        Math.round(b + (255 - b) * 0.88).toString(16).padStart(2, "0")
+    }`;
 }
 
 function analyzeColor(hex) {
