@@ -28,9 +28,9 @@ Enter a color code in the URL and instantly view the color preview, color values
 
 Open one of the following URLs.
 
-- https://one-color.pages.dev/#4c8054
 - https://one-color.pages.dev/4c8054
 - https://one-color.pages.dev/?color=4c8054
+- https://one-color.pages.dev/#4c8054
 
 Also, you can use 3-digit color codes. (e.g., `#4c8`)
 
@@ -46,6 +46,14 @@ Example:
 
 `https://one-color.pages.dev/?color=4c8054`
 
+### Path
+
+`<color>`
+
+Example:
+
+`https://one-color.pages.dev/4c8054`
+
 ### Hash
 
 `#<color>`
@@ -54,13 +62,9 @@ Example:
 
 `https://one-color.pages.dev/#4c8054`
 
-### Path
-
-`<color>`
-
-Example:
-
-`https://one-color.pages.dev/4c8054`
+> [!NOTE]
+> Using hash parameters results in some meta information not being set.
+> While this does not affect functionality, it is deprecated.
 
 ## 🔧 Options
 
