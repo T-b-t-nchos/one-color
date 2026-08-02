@@ -1,12 +1,20 @@
 function getColor() {
     let color = null;
 
-    // ?color=xxxx
-    const params = new URLSearchParams(location.search);
-    color = params.get("color");
+    // /xxxx
+    const path = location.pathname
+        .replace(/\/+$/, "")
+        .split("/")
+        .pop();
 
-    if (color) {
-        color = color.replace(/^#/, "");
+    if (path && path.toLowerCase() !== "index.html") {
+        color = path;
+    }
+
+    // ?color=xxxx
+    if (!color) {
+        const params = new URLSearchParams(location.search);
+        color = params.get("color");
     }
 
     // #xxxx
@@ -14,16 +22,8 @@ function getColor() {
         color = location.hash.substring(1);
     }
 
-    // /xxxx
-    if (!color) {
-        const path = location.pathname
-            .replace(/\/+$/, "")
-            .split("/")
-            .pop();
-
-        if (path && path.toLowerCase() !== "index.html") {
-            color = path;
-        }
+    if (color) {
+        color = color.replace(/^#/, "");
     }
 
     if (
@@ -315,7 +315,7 @@ function round(value, digits = 2) {
 
 function randomColor(short = false) {
     const chars = "0123456789abcdef";
-    
+
     if (short) {
         return "#" + Array.from({ length: 3 }, () =>
             chars[Math.floor(Math.random() * 16)]

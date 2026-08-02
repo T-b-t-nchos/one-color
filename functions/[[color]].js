@@ -1,9 +1,9 @@
 export async function onRequest(context) {
     const url = new URL(context.request.url);
 
-    let color = url.searchParams.get("color");
+    let color = context.params?.color;
     if (!color) {
-        color = url.params.color;
+        color = url.searchParams.get("color");
     }
 
     color = normalizeColor(color);
@@ -31,7 +31,7 @@ export async function onRequest(context) {
             }
         })
         .transform(response);
-}
+    }
 
 
 function normalizeColor(color) {
