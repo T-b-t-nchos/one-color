@@ -137,8 +137,9 @@
                         `;
 
 
-                    title.style.color = "#e00";
-                    desc.style.color = "#e00";
+                    const textColor = getColorScheme() === "dark" ? "#e77" : "#e00";
+                    title.style.color = textColor;
+                    desc.style.color = textColor;
                 }
             }
 
