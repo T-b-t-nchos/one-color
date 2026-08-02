@@ -99,12 +99,12 @@
                     const color6 = randomColor(false);
 
                     const colorLinks = [
+                        { key: "Path", value: color3.substring(1) },
+                        { key: "", value: color6.substring(1) },
                         { key: "Query", value: `?color=${color3.substring(1)}` },
                         { key: "", value: `?color=${color6.substring(1)}` },
                         // { key: "Hash", value: color3 },
                         // { key: "", value: color6 },
-                        { key: "Path", value: color3.substring(1) },
-                        { key: "", value: color6.substring(1) },
                     ];
                     const options = [
                         { key: "hideTitle", value: `${color3.substring(1)}?hideTitle` },
