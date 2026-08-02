@@ -107,8 +107,8 @@
                         { key: "", value: color6.substring(1) },
                     ];
                     const options = [
-                        { key: "hideTitle", value: `?hideTitle` + color3 },
-                        { key: "hideDesc", value: `?hideDesc` + color3 },
+                        { key: "hideTitle", value: `${color3.substring(1)}?hideTitle` },
+                        { key: "hideDesc", value: `${color3.substring(1)}?hideDesc` },
                     ]
                     desc.innerHTML = `
                         On this page, you can display color samples from color codes.<br>
