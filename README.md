@@ -30,7 +30,7 @@ Open one of the following URLs.
 
 - https://one-color.pages.dev/4c8054
 - https://one-color.pages.dev/?color=4c8054
-- https://one-color.pages.dev/#4c8054
+- (https://one-color.pages.dev/#4c8054) **(deprecated)**
 
 Also, you can use 3-digit color codes. (e.g., `#4c8`)
 
