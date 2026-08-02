@@ -35,16 +35,17 @@ a {
 }
 
 table {
-    /* border-collapse: collapse; */
+    border-collapse: collapse;
     margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
 }
 
 td {
     padding-top: 0.25rem;
-    padding-right: 5rem;
 }
 
 td:first-child {
+    width: 21rem;
     font-weight: 500;
     text-align: left;
     opacity: 0.9;

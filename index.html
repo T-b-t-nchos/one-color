@@ -95,7 +95,7 @@
                     const color3 = randomColor(true);
                     const color6 = randomColor(false);
 
-                    const links = [
+                    const colorLinks = [
                         { key: "Query", value: `?color=${color3.substring(1)}` },
                         { key: "", value: `?color=${color6.substring(1)}` },
                         { key: "Hash", value: color3 },
@@ -103,11 +103,25 @@
                         { key: "Hash (without #)", value: color3.substring(1) },
                         { key: "", value: color6.substring(1) },
                     ];
+                    const options = [
+                        { key: "hideTitle", value: `?hideTitle` + color3 },
+                        { key: "hideDesc", value: `?hideDesc` + color3 },
+                    ]
                     desc.innerHTML = `
                         On this page, you can display color samples from color codes.<br>
                         The notation is as follows:<br>
                         <table>
-                        ${links.map(({ key, value }) => `
+                        ${colorLinks.map(({ key, value }) => `
+                            <tr>
+                            <td>${key}</td>
+                            <td><a href="${value}">${value}</a></td>
+                            </tr>
+                            `).join("")}
+                        </table>
+                        <br>
+                        Also, you can use the following options:<br>
+                        <table>
+                        ${options.map(({ key, value }) => `
                             <tr>
                             <td>${key}</td>
                             <td><a href="${value}">${value}</a></td>
