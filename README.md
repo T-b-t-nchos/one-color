@@ -1,4 +1,7 @@
 # One Color
+<sub>A color previewer - show one color.</sub>
+
+---
 
 A simple web tool that displays information about a single color.
 
