@@ -74,7 +74,7 @@ Open `index.html` in your browser.
 
 No build system or additional dependencies are required.
 
-> ![CAUTION]
+> [!CAUTION]
 > You can't use path parameters on localhost.
 > (e.g., `https://localhost:3000/4c8054`)
 
