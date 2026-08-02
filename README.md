@@ -36,7 +36,7 @@ Also, you can use 3-digit color codes. (e.g., `#4c8`)
 
 The page will automatically detect the color and display its information.
 
-## 🔗 URL Parameters
+## 🎨 Color Input Formats
 
 ### Query
 
@@ -61,6 +61,22 @@ Example:
 Example:
 
 `https://one-color.pages.dev/4c8054`
+
+## 🔧 Options
+
+You can use the following options.
+
+### `?hideTitle`
+
+Example:
+
+`https://one-color.pages.dev/?hideTitle#4c8054`
+
+### `?hideDesc`
+
+Example:
+
+`https://one-color.pages.dev/?hideDesc#4c8054`
 
 ## 🛠 Development
 
