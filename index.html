@@ -46,6 +46,10 @@
                 return false;
             }
 
+            function getLink() {
+                return location.origin + "/" + getColor().substring(1);
+            }
+
             function update() {
                 const color = getColor();
 
@@ -81,6 +85,9 @@
                         </table>
                         <table>
                         <tr><td>Text Color</td><td>${textColor} ■</td></tr>
+                        </table>
+                        <table>
+                        <tr><td>Share this page</td><td><a href="#" id="linkCopy">Click to copy url</a></td>
                         </table>
                         </details>
                         `;
@@ -151,6 +158,24 @@
             update();
             window.addEventListener("hashchange", update);
             window.addEventListener("popstate", update);
+
+            document.getElementById("linkCopy").addEventListener("click", function (e) {
+                let copyTimer;
+
+                e.preventDefault();
+
+                navigator.clipboard.writeText(getLink());
+
+                const linkCopy = document.getElementById("linkCopy");
+                linkCopy.textContent = "Copied!";
+
+                clearTimeout(copyTimer);
+
+                copyTimer = setTimeout(() => {
+                    linkCopy.textContent = "Click to copy url";
+                }, 2000);
+            });
+            document.getElementById("linkCopy").href = getLink();
         </script>
     </body>
 
