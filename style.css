@@ -55,6 +55,12 @@ td:first-child {
     opacity: 0.9;
 }
 
+summary {
+    cursor: pointer;
+
+    font-weight: 400;
+}
+
 /* Tablet */
 @media (max-width: 1023px) {
     main {
