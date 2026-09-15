@@ -7,6 +7,15 @@ A simple web tool that displays information about a single color.
 
 Enter a color code in the URL and instantly view the color preview, color values, and related information.
 
+## 📷️ Preview
+<details>
+<summary>
+Screenshots
+</summary>
+<img src="./doc/img/Screenshot_4C8054.png">
+<img src="./doc/img/Screenshot_A0D8EF.png">
+</details>
+
 ## ✨ Features
 
 - Display any HEX color as a full-page background
